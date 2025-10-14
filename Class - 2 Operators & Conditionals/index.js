@@ -161,9 +161,82 @@ const Problems = {
      },
 
      // problem 13
+     getAbsolute(num = 0) {
+          if (num < 0) return -num;
+          else return num;
+
+          // way 2
+          // return Math.abs(num)
+     },
+
+     // problem 14
+     checkTriangle(a, b, c) {
+          if (a + b > c && b + c > a && a + c > b) return `valid triangle`;
+          else return `invalid triangle`;
+     },
+
+     // problem 15
      checkProfitLoss(cost = 0, selling = 0) {
           if (cost == "" || cost == " ") return `no value entered`;
           if (!(cost > selling)) return `+${selling - cost}tk Profit`;
           return `-${cost - selling}tk Loss`;
-     }
+     },
+
+     // problem 16
+     findMin(num1 = 0, num2 = 0) {
+          if (num1 === 0 || num2 === 0)
+               return `${num1} have no value to compare`;
+          return num1 < num2 ? num1 + " is small" : num2 + " is small";
+     },
+
+     // problem 17
+     checkPassFail(num) {
+          if (num === undefined) return `no value entered!`;
+          if (num >= 0 && num < 40) return `You're fail the exam`;
+          else if (num >= 40 && num <= 100)
+               return `Passed! you got ${num} marks!`;
+          else return `${num} out of mark!`;
+     },
+
+     // problem 18
+     checkOddPositive(num) {
+          if (num === undefined) return `no value entered!`;
+          if (num > 0 && num % 2 != 0) return `odd & Positive`;
+          else if (num < 0 && num % 2 != 0) return `odd & negative`;
+     },
+
+     // problem 19 
+     checkArmstrong(num) {
+          if (num === undefined) return `no value entered!`;
+          let mainNum = num;
+          let sum = 0;
+          while (num > 0) {
+               let last = num % 10;
+               sum += last ** 3;
+               num = Math.floor(num / 10);
+          }
+          return mainNum == sum
+               ? `${mainNum} is a armstrong number`
+               : `${mainNum} is not a armstrong number`;
+     },
+
+     // problem 20 
+     studentPerformance(grade) {
+          if (grade === 0 || grade > 100) return `out of range`;
+          if (grade == 100 || grade >= 80) {
+               return `Excellent`;
+          } else if (grade == 79 || grade >= 70) {
+               return `Very Good`;
+          } else if (grade == 69 || grade >= 60) {
+               return `Very Good`;
+          } else if (grade == 59 || grade >= 50) {
+               return `Average`;
+          } else if (grade == 49 || grade >= 40) {
+               return `Needs Improvement`;
+          } else if (grade == 39 || grade >= 33) {
+               return `Needs Improvement`;
+          } else if (grade >= 0 || grade <= 32) {
+               return `You're failed the examination!`;
+          }
+     },
 };
